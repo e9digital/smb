@@ -26,17 +26,18 @@
     = stylesheets :print, :media => 'print'
     /[if lt IE 8]
       = stylesheets :ie, :media => 'screen, projection'
+
     = javascripts 'base'
 
   %body{:id => @body_id, :class => @body_class}
     #outerContainer
-      %header
+      #header.header
         = title_header
-      %section
-        %section
+      #content.section
+        #main.section
           = yield
-        %aside
+        #sidebar.aside
           = partial 'sidebar'
-      %footer
+      #footer.footer
         = partial 'footer'
     #scripts
