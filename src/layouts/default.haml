@@ -1,0 +1,42 @@
+- @site_name                     = "site name"
+- @title_delimiter               = " | "
+- @page_description              = @site_name
+- @meta_description              = ""
+- @meta_keywords                 = ""
+- @google_site_verification_code = nil
+- @twitter_url                   = "http://twitter.com/"
+- @facebook_url                  = "http://www.facebook.com/"
+- @email_recipient               = 'contact'
+- @email_domain                  = 'domain'
+- @mailto_url                    = "mailto: #{@email_recipient} at #{@email_domain} dot com"
+
+!!!
+%html
+  %head
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html; CHARSET=utf-8"}/
+    - unless @google_site_verification_code.nil?
+      %meta{:name => "google-site-verification", :content => @google_site_verification_code }/
+    %title= full_page_title
+    %meta{:name => "description", :content => @meta_description}
+    %meta{:name => "keywords", :content => @meta_keywords}
+    <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type='text/css'>
+
+    = stylesheets :screen, :media => 'screen, projection'
+    = stylesheets :print, :media => 'print'
+    /[if lt IE 8]
+      = stylesheets :ie, :media => 'screen, projection'
+    = javascripts 'base'
+
+  %body{:id => @body_id, :class => @body_class}
+    #outerContainer
+      %header
+        = title_header
+      %section
+        %section
+          = yield
+        %aside
+          = partial 'sidebar'
+      %footer
+        = partial 'footer'
+    #scripts
