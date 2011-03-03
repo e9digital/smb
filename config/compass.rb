@@ -1,4 +1,4 @@
-puts "** loading config/compass.rb **"
+puts "** loading config/compass.rb"
 
 root = File.join(File.dirname(__FILE__), '../')
 project_path     = root

@@ -1,10 +1,6 @@
-puts "** loading config/site.rb **"
+puts "** loading config/site.rb"
 
 require 'compass'
-
-# TODO jammit config?
-
-#Compass.add_project_configuration('config/compass.rb')
 
 configuration.preview_server_port = 3000
 configuration.preview_server_host = '0.0.0.0'
